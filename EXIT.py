@@ -39,6 +39,42 @@ time.sleep(1)
 
 
     
+def genip():
+    
+    ips = input('Кол-во:')
+
+    print (Fore.RED + "")
+
+
+    print ('1. Запись в txt файл')
+    print ('2. Вывод в консоль')
+
+    kuda = input('>')
+    
+
+    if kuda == "1":
+        
+        for i in range(int(ips)):
+            with open("ipexit.txt", "w") as file:
+                for i in range(int(ips)):
+                    ip_address = str(random.randint(0, 255)) + '.' + str(random.randint(0, 255)) + '.' + str(random.randint(0, 255)) + '.' + str(random.randint(0, 255))
+                    file.write(str(ip_address) + "\n")
+                    print (Fore.YELLOW + 'Ip Адресс записан!')
+                    time.sleep(0.01)
+        print (Fore.BLUE + "Ip Адреса записаны в файл (ipexit)")
+        time.sleep(5)
+
+    if kuda == "2":
+
+        for i in range(int(ips)):
+            ip_address = str(random.randint(0, 255)) + '.' + str(random.randint(0, 255)) + '.' + str(random.randint(0, 255)) + '.' + str(random.randint(0, 255))
+            print("Ip:", ip_address)
+        print (Fore.GREEN + "Готово")
+        time.sleep(35)
+        
+            
+
+
 
                 
 
@@ -122,6 +158,7 @@ print ("|  3. Общение с users через бота тг             ")
 print ("|  4. Поиск SQL уязвимостей   ")
 print ("|  5. Сносер                                                      ")
 print ("|  6. Смс  telegramm")
+print ("|  7. Генератор Ip ")
 print ("|  0. Выход                                                      ")
 print ("---------------------------------------------")
 
@@ -131,6 +168,11 @@ user = input("Введите номер действия>")
 
 if user == "5":
     snos()
+
+if user == "7":
+    genip()
+    
+    
 
 
 
@@ -164,7 +206,61 @@ if user == "1":
     url = input("url:")
     
 
-    adm = ['admin', 'webadmin', 'administrator', '0admin', 'manedger', 'hello', 'aadmin', 'admins', 'login', 'auto',]
+    adm = [
+    'admin',
+    'administrator',
+    'adminpanel',
+    'login',
+    'controlpanel',
+    'dashboard',
+    'manage',
+    'backend',
+    'panel',
+    'wp-admin',
+    'user',
+    'secure',
+    'paneladmin',
+    'cpanel',
+    'siteadmin',
+    'webadmin',
+    'auth',
+    'access',
+    'settings',
+    'config',
+    'system',
+    'backendpanel',
+    'management',
+    'administratorpanel',
+    'useradmin',
+    'portal',
+    'secureadmin',
+    'dashboardpanel',
+    'adminarea',
+    'settingspanel',
+    'usercontrol',
+    'adminlogin',
+    'adminconsole',
+    'sitecontrol',
+    'adminzone',
+    'backendlogin',
+    'control',
+    'admininterface',
+    'adminhome',
+    'systemadmin',
+    'configuration',
+    'adminroot',
+    'controlroom',
+    'adminaccess',
+    'administration',
+    'memberadmin',
+    'siteadminpanel',
+    'adminsettings',
+    'adminspace',
+    'userpanel'
+]
+# rasdel
+
+
 
     kt = [
     'blog',
