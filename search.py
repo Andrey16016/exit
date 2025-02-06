@@ -9,7 +9,7 @@ from colorama import Fore
 def bz():
     search_term = input("{+}>")
     
-    file_name = 'baza.txt'
+    file_name = 'bd/baza.txt'
     with open(file_name, 'r', encoding='utf-8') as file:
         lines = file.readlines()
     foundlines = [line.strip() for line in lines if search_term.lower() in line.lower()]
